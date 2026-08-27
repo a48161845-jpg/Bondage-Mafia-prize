@@ -22,9 +22,9 @@ logger = logging.getLogger(__name__)
 logger.info(f"Версия aiogram: {aiogram.__version__}")
 
 # Настройки бота
-API_TOKEN = 'Bot father api'
-ADMIN_IDS = [1468458327, real tag id]
-GROUP_CHAT_ID = -1002406404339
+API_TOKEN = 'BOT_TOKEN'
+ADMIN_IDS = [7233257134]
+GROUP_CHAT_ID = -1003742575858
 BROADCAST_TOPIC_NAME = "Рассылка"
 PROMOCODES_TOPIC_NAME = "Промокоды"
 
