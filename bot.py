@@ -22,7 +22,7 @@ logger = logging.getLogger(__name__)
 logger.info(f"Версия aiogram: {aiogram.__version__}")
 
 # Настройки бота
-BOT_TOKEN="BOT_TOKEN"
+"TOKEN": os.environ.get("BOT_TOKEN")"
 ADMIN_IDS = [7233257134]
 GROUP_CHAT_ID = -1003742575858
 BROADCAST_TOPIC_NAME = "Рассылка"
