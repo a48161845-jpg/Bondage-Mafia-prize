@@ -23,8 +23,8 @@ logger.info(f"Версия aiogram: {aiogram.__version__}")
 
 # Настройки бота
 BOT_TOKEN="BOT_TOKEN"
-ADMIN_IDS = [1468458327, real tag id]
-GROUP_CHAT_ID = -1002406404339
+ADMIN_IDS = [7233257134, real tag id]
+GROUP_CHAT_ID = -1003742575858
 BROADCAST_TOPIC_NAME = "Рассылка"
 PROMOCODES_TOPIC_NAME = "Промокоды"
 
