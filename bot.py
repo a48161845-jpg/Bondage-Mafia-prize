@@ -26,8 +26,8 @@ logger.info(f"Версия aiogram: {aiogram.__version__}")
 API_TOKEN = os.getenv("BOT_TOKEN")
 if not API_TOKEN:
     raise RuntimeError("BOT_TOKEN не задан в переменных окружения")
-ADMIN_IDS = [7233257134]
-GROUP_CHAT_ID = -1003742575858
+ADMIN_IDS = [7233257134, 1860868256]
+GROUP_CHAT_ID = -1002693011454
 BROADCAST_TOPIC_NAME = "Рассылка"
 PROMOCODES_TOPIC_NAME = "Промокоды"
 
