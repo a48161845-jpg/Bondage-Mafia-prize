@@ -370,7 +370,7 @@ async def finalize_immediate_promocode(message: Message, state: FSMContext, prom
             promotype, selection, promocode, reward_str, activation_date
         )
         keyboard = InlineKeyboardMarkup(inline_keyboard=[
-            [InlineKeyboardButton(text="✅ Выдано", callback_data=f"promo_ok_{user_id}_{promocode}"),
+            [InlineKeyboardButton(text="🔃 Обработать", callback_data=f"promo_ok_{user_id}_{promocode}"),
              InlineKeyboardButton(text="❌ Отказано", callback_data=f"promo_no_{user_id}_{promocode}")]
         ])
         try:
@@ -751,7 +751,7 @@ async def send_prize_claim_summary(user_id: int, thread_id: int | None, reward_t
         await conn.commit()
 
         keyboard = InlineKeyboardMarkup(inline_keyboard=[
-            [InlineKeyboardButton(text="✅ Выдано", callback_data=f"claim_ok_{claim_id}"),
+            [InlineKeyboardButton(text="🔃 Обработать", callback_data=f"claim_ok_{claim_id}"),
              InlineKeyboardButton(text="❌ Отказано", callback_data=f"claim_no_{claim_id}")]
         ])
         try:
@@ -807,7 +807,7 @@ async def handle_claim_decision(callback: CallbackQuery, state: FSMContext):
     await safe_callback_answer(callback)
 
     admin_label = callback.from_user.username or callback.from_user.first_name or str(admin_id)
-    status_label = "✅ Выдано" if approve else "❌ Отказано"
+    status_label = "🔃 Обработано" if approve else "❌ Отказано"
     when = escape_markdown_v2(format_datetime(resolved_at))
     card_text = build_claim_card_text(claim_user_id, username, choice, detail, link, created_at)
     card_text += f"\n\nСтатус: *{status_label}*\nОбработал: @{escape_markdown_v2(admin_label)} \\({when}\\)"
@@ -874,7 +874,7 @@ async def handle_promo_claim_decision(callback: CallbackQuery, state: FSMContext
     await safe_callback_answer(callback)
 
     admin_label = callback.from_user.username or callback.from_user.first_name or str(admin_id)
-    status_label = "✅ Выдано" if approve else "❌ Отказано"
+    status_label = "🔃 Обработано" if approve else "❌ Отказано"
     when = escape_markdown_v2(format_datetime(resolved_at))
     reward_str = "Без срока" if reward_duration == 0 else f"{reward_duration} часов"
     card_text = build_promo_activation_text(target_user_id, username, promotype, selection, promocode, reward_str, activation_date)
@@ -913,7 +913,7 @@ async def show_my_claims(callback: CallbackQuery, state: FSMContext):
     claims = await c.fetchall()
     await conn.close()
 
-    status_labels = {'pending': '⏳ На рассмотрении', 'approved': '✅ Выдано', 'rejected': '❌ Отказано'}
+    status_labels = {'pending': '⏳ На рассмотрении', 'approved': '🔃 Обработано', 'rejected': '❌ Отказано'}
 
     if not claims:
         text = escape_markdown_v2("У вас пока нет заявок на призы.")
@@ -1693,7 +1693,7 @@ async def process_prefix(message: Message, state: FSMContext):
                 promotype, prefix, promocode, reward_str, activation_date
             )
             keyboard = InlineKeyboardMarkup(inline_keyboard=[
-                [InlineKeyboardButton(text="✅ Выдано", callback_data=f"promo_ok_{user_id}_{promocode}"),
+                [InlineKeyboardButton(text="🔃 Обработать", callback_data=f"promo_ok_{user_id}_{promocode}"),
                  InlineKeyboardButton(text="❌ Отказано", callback_data=f"promo_no_{user_id}_{promocode}")]
             ])
             try:
